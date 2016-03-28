@@ -22,7 +22,7 @@ protected:
 
 public:
 	Genotype() : _number_of_genes(0), _fitness(0) {};
-	Genotype(function<double(Genotype<ValueType>&)> count_fun) : _number_of_genes(0), _fitness(0)
+	Genotype(int number, function<double(Genotype<ValueType>&)> count_fun) : _number_of_genes(number), _fitness(0)
 	{
 		count_function = count_fun;
 	}

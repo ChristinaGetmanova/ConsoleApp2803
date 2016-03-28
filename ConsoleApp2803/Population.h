@@ -62,11 +62,11 @@ public:
 	void select_in_population()
 	{
 		sampling(*this);
-		/*delete childrn_vector;
+		delete childrn_vector;
 		delete parent_vector;
 
 		parent_vector = new vector<Genotype<ValueType>*>();
-		childrn_vector = new vector<Genotype<ValueType>*>();*/
+		childrn_vector = new vector<Genotype<ValueType>*>();
 	}
 	Population() : number_of_genotype(0), die_notigkeit_der_mutation(false) {};
 	virtual ~Population() {};

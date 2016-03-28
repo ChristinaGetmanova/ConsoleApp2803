@@ -122,17 +122,19 @@ void Recombination::r_discrete(Population<ValueType>& p)
 	mt19937 generator(rd());
 	uniform_int_distribution<> uniform_int_distribution(0, 1);
 	vector<Gene<ValueType>> parents[] = { *p.parent->get_genotype(), *p._parent->get_genotype() };
-	p.child = new Genotype<ValueType>(Fit_Fun::get_count<ValueType>());
-	p._child = new Genotype<ValueType>(Fit_Fun::get_count<ValueType>());
-	for (size_t i = 0; i < p.parent->get_number_of_genes(); i++)
+
+	p.child = new Genotype<ValueType>(7807, Fit_Fun::get_count<ValueType>());
+	p._child = new Genotype<ValueType>(7807, Fit_Fun::get_count<ValueType>());
+
+	for (size_t i = 0; i < p.child->get_number_of_genes(); i++)
 	{
 		auto n = static_cast<bool>(uniform_int_distribution(generator));
 		auto t = parents[n][i];
 		p.child->get_genotype()->push_back(parents[n][i]);
-		
+
 		n = static_cast<bool>(uniform_int_distribution(generator));
 		p._child->get_genotype()->push_back(parents[n][i]);
-		
+
 	}
 	p.child->count_fitness();
 	p._child->count_fitness();
